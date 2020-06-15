@@ -21,17 +21,28 @@ def selection_sort(arr):
                 smallest_index = current_index
                 current_index = current_index + 1
         # arr[smallest_index], arr[i] = arr[i], arr[smallest_index]
-        temp = arr[i]
         arr[i] = arr[smallest_index]
-        arr[smallest_index] = temp
+        arr[smallest_index] = arr[i]
+        # temp = arr[i]
+        # arr[i] = arr[smallest_index]
+        # arr[smallest_index] = temp
     return arr
 
 
 
 def bubble_sort(arr):
-
-
-
+    for i in range(0, len(arr) - 1):
+        current_index = i 
+        right_index = current_index + 1
+        while right_index > len(arr):
+            if arr[current_index] < arr[right_index]:
+                current_index = right_index
+                right_index = right_index + 1
+            else: 
+                arr[current_index] = arr[right_index]
+                arr[right_index] = arr[current_index]
+                current_index = right_index
+                right_index = right_index + 1
     return arr
 
 '''
