@@ -1,25 +1,48 @@
-# TO-DO: Complete the selection_sort() function below
+def insertion_sort(input_list):
+    # mark first item as sorted (no code needed here, conceptual)
+    for i in range(1, len(input_list)):                                            # for every item starting at the second element
+        current_item = input_list[i]                                               # put current item in temp variable
+        look_left_index = i - 1                                                    
+        while look_left_index > 0 and current_item < input_list[look_left_index]:  # if we are not at the beginning and current item is less than sorted
+            input_list[look_left_index + 1] = input_list[look_left_index]          # if sorted item is bigger, 
+            look_left_index -= 1
+        input_list[look_left_index] = current_item
+    return input_list
+
+
 def selection_sort(arr):
-    # loop through n-1 elements
     for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
-
-
-        # TO-DO: swap
-        # Your code here
-
+        current_index = i
+        smallest_index = current_index
+        while current_index < len(arr):
+            if arr[current_index] > arr[smallest_index]: 
+                current_index = current_index + 1
+            else: 
+                smallest_index = current_index
+                current_index = current_index + 1
+        # arr[smallest_index], arr[i] = arr[i], arr[smallest_index]
+        arr[i] = arr[smallest_index]
+        arr[smallest_index] = arr[i]
+        # temp = arr[i]
+        # arr[i] = arr[smallest_index]
+        # arr[smallest_index] = temp
     return arr
 
 
-# TO-DO:  implement the Bubble Sort function below
+
 def bubble_sort(arr):
-    # Your code here
-
-
+    for i in range(0, len(arr) - 1):
+        current_index = i 
+        right_index = current_index + 1
+        while right_index > len(arr):
+            if arr[current_index] < arr[right_index]:
+                current_index = right_index
+                right_index = right_index + 1
+            else: 
+                arr[current_index] = arr[right_index]
+                arr[right_index] = arr[current_index]
+                current_index = right_index
+                right_index = right_index + 1
     return arr
 
 '''
